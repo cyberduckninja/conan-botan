@@ -1,0 +1,12 @@
+osx: &osx
+  os: osx
+  language: generic
+
+matrix:
+  include:
+    - stage: installer
+      <<: *osx
+      osx_image: xcode10.3
+      env: CONAN_APPLE_CLANG_VERSIONS=10.0 ARCH=x86_64
+
+import: .ci/internal/travis-steps.yml
